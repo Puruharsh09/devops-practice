@@ -1,0 +1,19 @@
+name: OWASP ZAP Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run ZAP Scan
+      uses: zaproxy/action-baseline@v0.6.0
+      with:
+        target: 'https://github.com/Puruharsh09/devops-practice/new/main'
